@@ -1,9 +1,14 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import SideMenu from "@/components/SideMenu";
 
 export default function Home() {
   return (
     <div className={styles.page}>
+      <SideMenu />
+
+      <div className={styles.mainContent}>
+      <h1>Welcome to the Home Page</h1>
      
       <footer className={styles.footer}>
         <a
@@ -49,6 +54,7 @@ export default function Home() {
           Go to nextjs.org →
         </a>
       </footer>
+      </div>
     </div>
   );
 }
