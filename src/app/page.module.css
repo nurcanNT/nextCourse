@@ -94,3 +94,18 @@ a.secondary {
   }
 }
 
+.page {
+  display: flex;
+}
+
+.mainContent {
+  margin-left: 240px; /* MUI Drawer genişliği */
+  padding: 20px;
+  width: 100%;
+}
+
+.footer {
+  margin-top: 50px;
+  text-align: center;
+}
+
