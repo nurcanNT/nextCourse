@@ -1,12 +1,12 @@
 import * as React from 'react';
-import SideMenu from '../components/SideMenu';
+import Header from '../components/Header';
 import styles from './page.module.css';
 
 export default function Home() {
   return (
     <div className={styles.page}>
       {/* MUI Side Menu */}
-      <SideMenu />
+      <Header/>
 
       {/* Main Content */}
       <div className={styles.mainContent}>
