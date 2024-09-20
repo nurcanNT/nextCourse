@@ -14,17 +14,17 @@ export default function Header() {
           <Image src="/logo.svg" alt="Logo" width={40} height={40} />
         </IconButton>
 
-        <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
-          <Button color="inherit" component={Link} href="/">
+        <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center',  }}>
+          <Button color="inherit" component={Link} href="/" sx={{fontWeight: 'bold'}}>
             Home
           </Button>
-          <Button color="inherit" component={Link} href="/about">
+          <Button color="inherit" component={Link} href="/about" sx={{fontWeight: 'bold'}}>
             About
           </Button>
-          <Button color="inherit" component={Link} href="/services">
+          <Button color="inherit" component={Link} href="/services" sx={{fontWeight: 'bold'}}>
             Services
           </Button>
-          <Button color="inherit" component={Link} href="/contact">
+          <Button color="inherit" component={Link} href="/contact" sx={{fontWeight: 'bold'}}>
             Contact
           </Button>
         </Box>
@@ -32,10 +32,38 @@ export default function Header() {
         <IconButton color="inherit">
           <SearchIcon />
         </IconButton>
-        <Button color="inherit" component={Link} href="/signin">
+        <Button
+            component={Link}
+            href="/signin"
+            sx={{
+              color: '#666', 
+              backgroundColor: 'transparent',
+              borderRadius: 0, 
+              border: 0, 
+              fontWeight: 'bold',
+              mx: 1, 
+              '&:hover': {
+                backgroundColor: '#f2f2f2',
+              },
+            }}
+          >
           Sign In
         </Button>
-        <Button color="inherit" component={Link} href="/signup">
+        <Button
+            component={Link}
+            href="/signup"
+            sx={{
+              color: '#fff',
+              backgroundColor: '#4caf50', 
+              borderRadius: 0, 
+              border: 0, 
+              fontWeight: 'bold',
+              mx: 1, 
+              '&:hover': {
+                backgroundColor: '#45a049', 
+              },
+            }}
+          >
           Sign Up
         </Button>
       </Toolbar>
