@@ -80,4 +80,7 @@ a.secondary {
   padding: 0;
   width: 100%;
 }
+.mainContent h1 {
+  margin-left: 45px; 
+}
 
