@@ -84,6 +84,24 @@ a.secondary {
   margin-left: 45px; 
   margin-bottom: 60px;
 }
+
+.boxContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+}
+
+.box {
+  width: 30%;
+  padding: 20px;
+  background-color: #f4f4f4;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .mainContent {
   margin: 0;
   padding: 20px;
@@ -91,6 +109,17 @@ a.secondary {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.weatherBanner {
+  width: 100%;
+  padding: 20px;
+  background-color: #4caf50;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .boxContainer {
@@ -121,5 +150,4 @@ a.secondary {
     margin-bottom: 20px;
   }
 }
-
 
