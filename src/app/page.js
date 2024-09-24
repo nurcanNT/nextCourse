@@ -12,13 +12,14 @@ export default function Home() {
   
   useEffect(() => {
     async function fetchWeather() {
-      const apiKey = 'YOUR_API_KEY';  // OpenWeatherMap API key
-      const city = 'Istanbul';        // İstediğiniz şehir
+      const apiKey = 'YOUR_ACTUAL_API_KEY'; 
+      const city = 'Istanbul';       
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
       try {
         const response = await fetch(url);
         const data = await response.json();
+        console.log(data); 
         setWeather(data);
         setLoading(false);
       } catch (error) {
@@ -37,7 +38,6 @@ export default function Home() {
       <div className={styles.mainContent}>
         <h1>Welcome to the Home Page</h1>
 
-        {/* Hava Durumu Banner */}
         <div className={styles.weatherBanner}>
           {loading ? (
             <p>Hava durumu yükleniyor...</p>
@@ -53,7 +53,6 @@ export default function Home() {
           )}
         </div>
 
-        {/* Box Container */}
         <div className={styles.boxContainer}>
           <div className={styles.box}>
             <h2>En Çok Yorum Alan</h2>
