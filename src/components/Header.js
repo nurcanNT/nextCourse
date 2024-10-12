@@ -29,59 +29,60 @@ export default function Header() {
           </IconButton>
 
           <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
-            <Button color="inherit" component={Link} href="/">
-              Home
-            </Button>
-            <Button color="inherit" component={Link} href="/about">
-              About
-            </Button>
-            <Button color="inherit" component={Link} href="/services">
-              Services
-            </Button>
-            <Button color="inherit" component={Link} href="/contact">
-              Contact
-            </Button>
+            <Link href="/" passHref>
+              <Button sx={{ color: 'black' }} color="inherit">Home</Button>
+            </Link>
+            <Link href="/About">
+            <Button sx={{ color: 'black' }} color="inherit">About</Button>
+          </Link>
+
+            <Link href="/services" passHref>
+              <Button sx={{ color: 'black' }} color="inherit">Services</Button>
+            </Link>
+            <Link href="/contact" passHref>
+              <Button sx={{ color: 'black' }} color="inherit">Contact</Button>
+            </Link>
           </Box>
 
           <IconButton color="inherit" onClick={handleSearchClick}>
             <SearchIcon />
           </IconButton>
 
-          <Button
-            component={Link}
-            href="/signin"
-            sx={{
-              color: '#666',
-              backgroundColor: 'transparent',
-              borderRadius: 0,
-              border: 0,
-              fontWeight: 'bold',
-              mx: 1,
-              '&:hover': {
-                backgroundColor: '#f2f2f2',
-              },
-            }}
-          >
-            Sign In
-          </Button>
+          <Link href="/signin" passHref>
+            <Button
+              sx={{
+                color: '#666',
+                backgroundColor: 'transparent',
+                borderRadius: 0,
+                border: 0,
+                fontWeight: 'bold',
+                mx: 1,
+                '&:hover': {
+                  backgroundColor: '#f2f2f2',
+                },
+              }}
+            >
+              Sign In
+            </Button>
+          </Link>
 
-          <Button
-            component={Link}
-            href="/signup"
-            sx={{
-              color: '#fff',
-              backgroundColor: '#4caf50',
-              borderRadius: 0,
-              border: 0,
-              fontWeight: 'bold',
-              mx: 1,
-              '&:hover': {
-                backgroundColor: '#45a049',
-              },
-            }}
-          >
-            Sign Up
-          </Button>
+          <Link href="/signup" passHref>
+            <Button
+              sx={{
+                color: '#fff',
+                backgroundColor: '#4caf50',
+                borderRadius: 0,
+                border: 0,
+                fontWeight: 'bold',
+                mx: 1,
+                '&:hover': {
+                  backgroundColor: '#45a049',
+                },
+              }}
+            >
+              Sign Up
+            </Button>
+          </Link>
         </Toolbar>
       </AppBar>
 
