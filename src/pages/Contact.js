@@ -3,6 +3,7 @@
 import React from "react";
 import { Box, Typography, TextField, Button, Container } from "@mui/material";
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function Contact() {
   return (
@@ -93,6 +94,7 @@ export default function Contact() {
             </Button>
           </Box>
         </Container>
+        <Footer/>
       </Box>
     </>
   );
