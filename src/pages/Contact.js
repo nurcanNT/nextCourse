@@ -92,6 +92,22 @@ export default function Contact() {
             >
               Send Message
             </Button>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              sx={{
+                backgroundColor: "#4caf50",
+                fontWeight: "bold",
+                fontSize: "16px",
+                padding: "10px 20px",
+                '&:hover': {
+                  backgroundColor: "#388e3c",
+                }
+              }}
+            >
+              Send Message
+            </Button>
           </Box>
         </Container>
         <Footer/>
