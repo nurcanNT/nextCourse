@@ -1,163 +1,63 @@
-"use client";
+import Header from '@/components/Header';
+import { Box, Grid, Typography, Container } from '@mui/material';
+import { FaBullhorn, FaChartLine, FaCamera, FaMobileAlt, FaEnvelope } from 'react-icons/fa';
 
-import React from "react";
-import { Box, Typography, Container, Card, CardContent, Grid, Button } from "@mui/material";
-import Header from '../components/Header';
-import Image from 'next/image';
-import Footer from '../components/Footer';
+const services = [
+  { title: 'Sosyal Medya Yönetimi', description: 'Sosyal medya hesaplarınızı yönetin...', icon: <FaBullhorn /> },
+  { title: 'Dijital Pazarlama', description: 'Markanızı dijital dünyada büyütün...', icon: <FaChartLine /> },
+  { title: 'Reklam Yönetimi', description: 'Reklam kampanyalarınızı optimize edin...', icon: <FaEnvelope /> },
+  { title: 'İçerik Üretimi', description: 'Yaratıcı içeriklerle hedef kitlenizi etkileyin...', icon: <FaCamera /> },
+  { title: 'Web ve Mobil Geliştirme', description: 'Özelleştirilmiş web ve mobil çözümler...', icon: <FaMobileAlt /> }
+];
 
-export default function About() {
+const Services = () => {
   return (
     <>
-      <Header />
-      <Box
-        sx={{
-          marginTop: "100px",
-          padding: "20px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          backgroundColor: "#f9f9f9",  
-        }}
-      >
-        <Container maxWidth="lg">
-          
-          <Typography
-            variant="h2"
-            component="h1"
-            sx={{
-              fontWeight: "bold",
-              marginBottom: "20px",
-              color: "#4caf50",
-              textAlign: "center",
-            }}
-          >
-            About Us
-          </Typography>
-
-          
-          <Typography
-            variant="body1"
-            paragraph
-            sx={{
-              color: "#666",
-              fontSize: "18px",
-              textAlign: "center",
-              maxWidth: "800px",
-              margin: "0 auto",
-            }}
-          >
-            Welcome to our website! We are a company dedicated to providing top-quality services
-            to our clients. Our team is passionate about innovation and customer satisfaction.
-            Whether you need digital solutions, marketing, or product development, we are here
-            to help you achieve your goals. Our mission is to empower your business with 
-            cutting-edge technology and strategies.
-          </Typography>
-
-          
-          <Grid container spacing={4} sx={{ marginTop: "40px" }}>
-            
-            <Grid item xs={12} md={6}>
-              <Card
-                sx={{
-                  backgroundColor: "#fff",
-                  boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-                }}
-              >
-                <CardContent>
-                  <Typography
-                    variant="h5"
-                    component="div"
-                    sx={{ color: "#4caf50", fontWeight: "bold" }}
-                  >
-                    Our Mission
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{ marginTop: "10px", color: "#666" }}
-                  >
-                    Our mission is to help businesses grow and succeed by offering 
-                    innovative digital solutions tailored to their needs. We strive to be at the forefront
-                    of technology and innovation.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            
-            <Grid item xs={12} md={6}>
-              <Card
-                sx={{
-                  backgroundColor: "#fff",
-                  boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-                }}
-              >
-                <CardContent>
-                  <Typography
-                    variant="h5"
-                    component="div"
-                    sx={{ color: "#4caf50", fontWeight: "bold" }}
-                  >
-                    Our Vision
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{ marginTop: "10px", color: "#666" }}
-                  >
-                    We envision a world where businesses of all sizes can access powerful 
-                    digital tools and strategies to excel in their respective industries.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          </Grid>
-
-         
-          <Box
-            sx={{
-              marginTop: "60px",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <Image
-              src="/team.jpg" 
-              alt="Our Team"
-              width={800}
-              height={450}
-              style={{
-                borderRadius: "10px",
-                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-              }}
-            />
-          </Box>
-
-          <Box
-            sx={{
-              marginTop: "40px",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <Button
-              variant="contained"
-              color="primary"
+    <Header/>
+    <Container maxWidth="lg" sx={{ py: 5 }}>
+      {/* Hero Section */}
+      <Box textAlign="center" mb={5}>
+        <Typography variant="h3" component="h1" color="primary" gutterBottom>
+          Hizmetlerimiz
+        </Typography>
+        <Typography variant="subtitle1" color="textSecondary">
+          Size dijital dünyanın kapılarını açan hizmetler
+        </Typography>
+      </Box>
+      
+      {/* Service Boxes */}
+      <Grid container spacing={4}>
+        {services.map((service, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <Box
               sx={{
-                backgroundColor: "#4caf50",
-                fontWeight: "bold",
-                fontSize: "16px",
-                padding: "10px 20px",
+                p: 3,
+                textAlign: 'center',
+                borderRadius: '10px',
+                backgroundColor: 'white',
+                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                 '&:hover': {
-                  backgroundColor: "#388e3c",
-                }
+                  backgroundColor: '#2E8B57',
+                  color: 'white',
+                  transform: 'translateY(-5px)',
+                  transition: '0.3s',
+                },
               }}
             >
-              Learn More About Us
-            </Button>
-          </Box>
-        </Container>
-        <Footer/>
-      </Box>
+              <Box sx={{ fontSize: 50, mb: 2, color: 'primary.main' }}>{service.icon}</Box>
+              <Typography variant="h5" component="h3" gutterBottom>
+                {service.title}
+              </Typography>
+              <Typography variant="body1" color="textSecondary">
+                {service.description}
+              </Typography>
+            </Box>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
     </>
   );
-}
+};
+
+export default Services;
