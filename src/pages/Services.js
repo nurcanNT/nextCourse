@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { Box, Grid, Typography, Container } from '@mui/material';
 import { FaBullhorn, FaChartLine, FaCamera, FaMobileAlt, FaEnvelope } from 'react-icons/fa';
@@ -56,6 +57,7 @@ const Services = () => {
         ))}
       </Grid>
     </Container>
+    <Footer/>
     </>
   );
 };
