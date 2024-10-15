@@ -66,7 +66,7 @@ export default function Header() {
             </Button>
           </Link>
 
-          <Link href="/signup" passHref>
+          <Link href="/Signup" >
             <Button
               sx={{
                 color: '#fff',
