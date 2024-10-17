@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { Box, Button, TextField, Typography, Divider } from '@mui/material';
+import { Box, Button, TextField, Typography, Divider, IconButton } from '@mui/material';
 import { useRouter } from 'next/router';
+import GoogleIcon from '@mui/icons-material/Google';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({
@@ -143,6 +146,18 @@ export default function SignIn() {
         </Button>
 
         <Divider sx={{ marginY: '20px' }}>Or</Divider>
+
+        <Box sx={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '20px' }}>
+          <IconButton sx={{ color: '#db4437' }}>
+            <GoogleIcon />
+          </IconButton>
+          <IconButton sx={{ color: '#3b5998' }}>
+            <FacebookIcon />
+          </IconButton>
+          <IconButton sx={{ color: '#1da1f2' }}>
+            <TwitterIcon />
+          </IconButton>
+        </Box>
 
         <Typography variant="body2" align="center">
           Don't have an account?{' '}
