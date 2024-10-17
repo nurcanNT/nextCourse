@@ -35,6 +35,25 @@ export default function SignUp() {
     });
   };
 
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    let newErrors = { ...errors };
+
+    if (name === 'email' && !validateEmail(value)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    if (name === 'password' && !validatePassword(value)) {
+      newErrors.password = 'Password must be at least 8 characters long, contain one uppercase letter, one digit, and one special character';
+    }
+
+    if (name === 'confirmPassword' && value !== formData.password) {
+      newErrors.confirmPassword = "Passwords don't match";
+    }
+
+    setErrors(newErrors);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     let formValid = true;
@@ -122,6 +141,7 @@ export default function SignUp() {
           variant="outlined"
           value={formData.email}
           onChange={handleChange}
+          onBlur={handleBlur} 
           sx={{ width: '100%', marginBottom: '20px' }}
           required
           error={!!errors.email}
@@ -134,6 +154,7 @@ export default function SignUp() {
           variant="outlined"
           value={formData.password}
           onChange={handleChange}
+          onBlur={handleBlur} 
           sx={{ width: '100%', marginBottom: '20px' }}
           required
           error={!!errors.password}
@@ -146,6 +167,7 @@ export default function SignUp() {
           variant="outlined"
           value={formData.confirmPassword}
           onChange={handleChange}
+          onBlur={handleBlur} 
           sx={{ width: '100%', marginBottom: '20px' }}
           required
           error={!!errors.confirmPassword}
