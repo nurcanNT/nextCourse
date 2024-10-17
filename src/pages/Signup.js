@@ -12,20 +12,53 @@ export default function SignUp() {
     password: '',
     confirmPassword: '',
   });
+  const [errors, setErrors] = useState({});
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+    return passwordRegex.test(password);
+  };
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+    setErrors({
+      ...errors,
+      [e.target.name]: '', 
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let formValid = true;
+    let newErrors = {};
+
+    if (!validateEmail(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+      formValid = false;
+    }
+
+    if (!validatePassword(formData.password)) {
+      newErrors.password = 'Password must be at least 8 characters long, contain one uppercase letter, one digit, and one special character';
+      formValid = false;
+    }
+
     if (formData.password !== formData.confirmPassword) {
-      alert("Passwords don't match");
-    } else {
+      newErrors.confirmPassword = "Passwords don't match";
+      formValid = false;
+    }
+
+    if (formValid) {
       console.log('Form Submitted', formData);
+    } else {
+      setErrors(newErrors);
     }
   };
 
@@ -43,7 +76,6 @@ export default function SignUp() {
         backgroundPosition: 'center',
       }}
     >
-      
       <Box sx={{ mb: 4, textAlign: 'center' }}>
         <Typography variant="h3" component="h1" gutterBottom>
           Welcome to Our Community!
@@ -92,6 +124,8 @@ export default function SignUp() {
           onChange={handleChange}
           sx={{ width: '100%', marginBottom: '20px' }}
           required
+          error={!!errors.email}
+          helperText={errors.email}
         />
         <TextField
           label="Password"
@@ -102,6 +136,8 @@ export default function SignUp() {
           onChange={handleChange}
           sx={{ width: '100%', marginBottom: '20px' }}
           required
+          error={!!errors.password}
+          helperText={errors.password}
         />
         <TextField
           label="Confirm Password"
@@ -112,6 +148,8 @@ export default function SignUp() {
           onChange={handleChange}
           sx={{ width: '100%', marginBottom: '20px' }}
           required
+          error={!!errors.confirmPassword}
+          helperText={errors.confirmPassword}
         />
 
         <Button
@@ -134,7 +172,6 @@ export default function SignUp() {
 
         <Divider sx={{ marginY: '20px' }}>Or Sign Up with</Divider>
 
-        {/* Sosyal Medya Butonları */}
         <Box sx={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '20px' }}>
           <IconButton sx={{ color: '#db4437' }}>
             <GoogleIcon />
@@ -147,7 +184,6 @@ export default function SignUp() {
           </IconButton>
         </Box>
 
-        {/* Giriş Linki */}
         <Typography variant="body2" align="center">
           Already have an account?{' '}
           <a href="/signin" style={{ color: '#4caf50', textDecoration: 'none', fontWeight: 'bold' }}>
