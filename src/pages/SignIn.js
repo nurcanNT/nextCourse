@@ -146,7 +146,7 @@ export default function SignIn() {
 
         <Typography variant="body2" align="center">
           Don't have an account?{' '}
-          <a href="/signup" style={{ color: '#1976d2', textDecoration: 'none', fontWeight: 'bold' }}>
+          <a href="/Signup" style={{ color: '#1976d2', textDecoration: 'none', fontWeight: 'bold' }}>
             Sign Up
           </a>
         </Typography>
