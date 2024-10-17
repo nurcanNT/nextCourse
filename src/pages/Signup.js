@@ -38,12 +38,12 @@ export default function SignUp() {
         justifyContent: 'center',
         minHeight: '100vh',
         padding: '20px',
-        backgroundImage: 'url(/background.jpg)', // Arka plan resmi ekleyin
+        backgroundImage: 'url(/background.jpg)', 
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
-      {/* Başlık ve Hoş Geldiniz Mesajı */}
+      
       <Box sx={{ mb: 4, textAlign: 'center' }}>
         <Typography variant="h3" component="h1" gutterBottom>
           Welcome to Our Community!
@@ -53,12 +53,11 @@ export default function SignUp() {
         </Typography>
       </Box>
 
-      {/* Form Alanları */}
       <Box
         component="form"
         onSubmit={handleSubmit}
         sx={{
-          backgroundColor: 'rgba(255, 255, 255, 0.9)', // Hafif şeffaf bir beyaz arka plan
+          backgroundColor: 'rgba(255, 255, 255, 0.9)', 
           borderRadius: '8px',
           padding: '40px',
           width: '100%',
