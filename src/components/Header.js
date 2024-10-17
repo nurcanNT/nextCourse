@@ -48,7 +48,7 @@ export default function Header() {
             <SearchIcon />
           </IconButton>
 
-          <Link href="/signin" passHref>
+          <Link href="/SignIn" passHref>
             <Button
               sx={{
                 color: '#666',
