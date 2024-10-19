@@ -131,14 +131,14 @@ export default function SignIn() {
           type="submit"
           variant="contained"
           sx={{
-            backgroundColor: '#1976d2',
+            backgroundColor: '#4caf50',
             color: '#fff',
             fontWeight: 'bold',
             width: '100%',
             height: '50px',
             marginBottom: '20px',
             '&:hover': {
-              backgroundColor: '#1565c0',
+              backgroundColor: '#45a049',
             },
           }}
         >
