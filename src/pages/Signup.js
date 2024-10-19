@@ -79,6 +79,15 @@ export default function SignUp() {
 
     if (formValid) {
       console.log('Form Submitted', formData);
+
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+      });
+      setErrors({});
     } else {
       setErrors(newErrors);
     }
