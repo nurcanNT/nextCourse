@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Box, Button, TextField, Typography, Divider, IconButton } from '@mui/material';
+import { Box, Button, TextField, Typography, Divider, IconButton, InputAdornment } from '@mui/material';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -13,6 +15,7 @@ export default function SignUp() {
     confirmPassword: '',
   });
   const [errors, setErrors] = useState({});
+  const [showPassword, setShowPassword] = useState(false); 
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -79,6 +82,10 @@ export default function SignUp() {
     } else {
       setErrors(newErrors);
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword); 
   };
 
   return (
@@ -150,7 +157,7 @@ export default function SignUp() {
         <TextField
           label="Password"
           name="password"
-          type="password"
+          type={showPassword ? 'text' : 'password'} 
           variant="outlined"
           value={formData.password}
           onChange={handleChange}
@@ -159,11 +166,23 @@ export default function SignUp() {
           required
           error={!!errors.password}
           helperText={errors.password}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={togglePasswordVisibility}
+                  edge="end"
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         <TextField
           label="Confirm Password"
           name="confirmPassword"
-          type="password"
+          type={showPassword ? 'text' : 'password'}
           variant="outlined"
           value={formData.confirmPassword}
           onChange={handleChange}
@@ -172,6 +191,18 @@ export default function SignUp() {
           required
           error={!!errors.confirmPassword}
           helperText={errors.confirmPassword}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={togglePasswordVisibility}
+                  edge="end"
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
 
         <Button
