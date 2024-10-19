@@ -13,8 +13,8 @@ export default function Footer() {
           <Link href="/About" className={styles.link}>
             About
           </Link>
-          <Link href="/Services" className={styles.link}>
-            Services
+          <Link href="/Blog" className={styles.link}>
+            Blog
           </Link>
           <Link href="/Contact" className={styles.link}>
             Contact
