@@ -30,18 +30,18 @@ export default function About() {
               marginBottom: "20px",
               color: "#4caf50",
               textAlign: "center",
+              fontSize: { xs: "2.2rem", sm: "3rem" }, 
             }}
           >
             About Us
           </Typography>
 
-          
           <Typography
             variant="body1"
             paragraph
             sx={{
               color: "#666",
-              fontSize: "18px",
+              fontSize: { xs: "16px", sm: "18px" },  
               textAlign: "center",
               maxWidth: "800px",
               margin: "0 auto",
@@ -54,27 +54,26 @@ export default function About() {
             cutting-edge technology and strategies.
           </Typography>
 
-          
           <Grid container spacing={4} sx={{ marginTop: "40px" }}>
-            
             <Grid item xs={12} md={6}>
               <Card
                 sx={{
                   backgroundColor: "#fff",
                   boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+                  padding: { xs: "10px", sm: "20px" }, 
                 }}
               >
                 <CardContent>
                   <Typography
                     variant="h5"
                     component="div"
-                    sx={{ color: "#4caf50", fontWeight: "bold" }}
+                    sx={{ color: "#4caf50", fontWeight: "bold", fontSize: { xs: "1.2rem", sm: "1.5rem" } }} 
                   >
                     Our Mission
                   </Typography>
                   <Typography
                     variant="body2"
-                    sx={{ marginTop: "10px", color: "#666" }}
+                    sx={{ marginTop: "10px", color: "#666", fontSize: { xs: "14px", sm: "16px" } }} 
                   >
                     Our mission is to help businesses grow and succeed by offering 
                     innovative digital solutions tailored to their needs. We strive to be at the forefront
@@ -84,25 +83,25 @@ export default function About() {
               </Card>
             </Grid>
 
-            
             <Grid item xs={12} md={6}>
               <Card
                 sx={{
                   backgroundColor: "#fff",
                   boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+                  padding: { xs: "10px", sm: "20px" }, 
                 }}
               >
                 <CardContent>
                   <Typography
                     variant="h5"
                     component="div"
-                    sx={{ color: "#4caf50", fontWeight: "bold" }}
+                    sx={{ color: "#4caf50", fontWeight: "bold", fontSize: { xs: "1.2rem", sm: "1.5rem" } }} 
                   >
                     Our Vision
                   </Typography>
                   <Typography
                     variant="body2"
-                    sx={{ marginTop: "10px", color: "#666" }}
+                    sx={{ marginTop: "10px", color: "#666", fontSize: { xs: "14px", sm: "16px" } }} 
                   >
                     We envision a world where businesses of all sizes can access powerful 
                     digital tools and strategies to excel in their respective industries.
@@ -112,10 +111,9 @@ export default function About() {
             </Grid>
           </Grid>
 
-         
           <Box
             sx={{
-              marginTop: "60px",
+              marginTop: "40px",
               display: "flex",
               justifyContent: "center",
             }}
@@ -128,6 +126,8 @@ export default function About() {
               style={{
                 borderRadius: "10px",
                 boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+                maxWidth: "100%",  
+                height: "auto",    
               }}
             />
           </Box>
@@ -145,7 +145,7 @@ export default function About() {
               sx={{
                 backgroundColor: "#4caf50",
                 fontWeight: "bold",
-                fontSize: "16px",
+                fontSize: { xs: "14px", sm: "16px" }, 
                 padding: "10px 20px",
                 '&:hover': {
                   backgroundColor: "#388e3c",
@@ -156,7 +156,7 @@ export default function About() {
             </Button>
           </Box>
         </Container>
-        <Footer/>
+        <Footer />
       </Box>
     </>
   );
