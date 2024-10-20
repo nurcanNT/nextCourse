@@ -51,7 +51,9 @@ export default function About() {
             to our clients. Our team is passionate about innovation and customer satisfaction.
             Whether you need digital solutions, marketing, or product development, we are here
             to help you achieve your goals. Our mission is to empower your business with 
-            cutting-edge technology and strategies.
+            cutting-edge technology and strategies.Our team is passionate about innovation and customer satisfaction.
+            Whether you need digital solutions, marketing, or product development, we are here
+            to help you achieve your goals.
           </Typography>
 
           <Grid container spacing={4} sx={{ marginTop: "40px" }}>
