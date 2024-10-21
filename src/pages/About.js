@@ -8,7 +8,11 @@ import Footer from '../components/Footer';
 
 export default function About() {
   return (
-    <>
+    <Box 
+      display="flex" 
+      flexDirection="column" 
+      minHeight="100%" 
+    >
       <Header />
       <Box
         sx={{
@@ -20,7 +24,7 @@ export default function About() {
           backgroundColor: "#f9f9f9",  
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" sx={{paddingBottom: '100px' }}>
           
           <Typography
             variant="h2"
@@ -160,6 +164,6 @@ export default function About() {
         </Container>
         <Footer />
       </Box>
-    </>
+    </Box>
   );
 }
