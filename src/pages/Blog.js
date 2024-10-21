@@ -1,10 +1,11 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
-import { Box, Grid, Typography, Container, Button, Avatar } from '@mui/material';
+import { Box, Grid, Typography, Container, Button, Avatar, Dialog, DialogTitle, DialogContent, TextField, DialogActions } from '@mui/material';
+import { useState } from 'react';
 import { FaCalendarAlt, FaUser } from 'react-icons/fa';
 
 // Example blog data
-const blogs = [
+const initialBlogs = [
   {
     title: 'Dijital Pazarlamada Başarılı Olmanın Yolları',
     description: 'Dijital pazarlamada markanızı büyütmenin ve daha geniş kitlelere ulaşmanın yollarını öğrenin...',
@@ -29,6 +30,40 @@ const blogs = [
 ];
 
 const Blog = () => {
+  const [blogs, setBlogs] = useState(initialBlogs);
+  const [open, setOpen] = useState(false);
+  const [newBlog, setNewBlog] = useState({
+    title: '',
+    description: '',
+    author: '',
+    date: '',
+    image: ''
+  });
+
+  // Yeni blog formunu aç/kapat
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  // Yeni blog ekleme işlemi
+  const handleAddBlog = () => {
+    setBlogs([...blogs, newBlog]); // Mevcut bloglara yeni blog ekle
+    handleClose(); // Formu kapat
+  };
+
+  // Formdaki değişiklikleri izleme
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNewBlog((prevBlog) => ({
+      ...prevBlog,
+      [name]: value
+    }));
+  };
+
   return (
     <>
       <Header />
@@ -42,6 +77,79 @@ const Blog = () => {
             Dijital dünyada öne çıkmanızı sağlayacak ipuçları ve en son trendler
           </Typography>
         </Box>
+
+        {/* Blog Ekle Butonu */}
+        <Box textAlign="center" mb={5}>
+          <Button variant="contained" sx={{backgroundColor: '#4caf50',
+                    color: '#fff',
+                    fontWeight: 'bold',
+                    '&:hover': {
+                      backgroundColor: '#45a049',
+                    },}} onClick={handleClickOpen}>
+            Blog Ekle
+          </Button>
+        </Box>
+
+        {/* Blog Ekleme Formu */}
+        <Dialog open={open} onClose={handleClose}>
+          <DialogTitle>Yeni Blog Ekle</DialogTitle>
+          <DialogContent>
+            <TextField
+              autoFocus
+              margin="dense"
+              label="Başlık"
+              name="title"
+              fullWidth
+              variant="outlined"
+              value={newBlog.title}
+              onChange={handleChange}
+            />
+            <TextField
+              margin="dense"
+              label="Açıklama"
+              name="description"
+              fullWidth
+              variant="outlined"
+              value={newBlog.description}
+              onChange={handleChange}
+            />
+            <TextField
+              margin="dense"
+              label="Yazar"
+              name="author"
+              fullWidth
+              variant="outlined"
+              value={newBlog.author}
+              onChange={handleChange}
+            />
+            <TextField
+              margin="dense"
+              label="Tarih"
+              name="date"
+              fullWidth
+              variant="outlined"
+              value={newBlog.date}
+              onChange={handleChange}
+            />
+            <TextField
+              margin="dense"
+              label="Resim URL"
+              name="image"
+              fullWidth
+              variant="outlined"
+              value={newBlog.image}
+              onChange={handleChange}
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} color="secondary">
+              İptal
+            </Button>
+            <Button onClick={handleAddBlog} color="primary">
+              Ekle
+            </Button>
+          </DialogActions>
+        </Dialog>
 
         {/* Blog Grid */}
         <Grid container spacing={4}>
