@@ -4,7 +4,6 @@ import { Box, Grid, Typography, Container, Button, Avatar, Dialog, DialogTitle, 
 import { useState } from 'react';
 import { FaCalendarAlt, FaUser } from 'react-icons/fa';
 
-// Example blog data
 const initialBlogs = [
   {
     title: 'Dijital Pazarlamada Başarılı Olmanın Yolları',
@@ -40,7 +39,6 @@ const Blog = () => {
     image: ''
   });
 
-  // Yeni blog formunu aç/kapat
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -49,13 +47,11 @@ const Blog = () => {
     setOpen(false);
   };
 
-  // Yeni blog ekleme işlemi
   const handleAddBlog = () => {
-    setBlogs([...blogs, newBlog]); // Mevcut bloglara yeni blog ekle
-    handleClose(); // Formu kapat
+    setBlogs([...blogs, newBlog]); 
+    handleClose(); 
   };
 
-  // Formdaki değişiklikleri izleme
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewBlog((prevBlog) => ({
@@ -68,11 +64,13 @@ const Blog = () => {
     <Box 
       display="flex" 
       flexDirection="column" 
-      minHeight="100vh"
+      minHeight="100%" 
     >
       <Header />
-      <Container maxWidth="lg" sx={{ py: 5, flexGrow: 1 }}>
-        {/* Hero Section */}
+      <Container 
+        maxWidth="lg" 
+        sx={{ py: 5, flexGrow: 1, paddingBottom: '100px' }}
+      >
         <Box textAlign="center" mb={5}>
           <Typography variant="h3" component="h1" color="primary" gutterBottom>
             Blog Yazılarımız
