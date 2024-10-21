@@ -38,7 +38,11 @@ export default function Contact() {
   };
 
   return (
-    <>
+    <Box 
+      display="flex" 
+      flexDirection="column" 
+      minHeight="100%" 
+    >
       <Header />
       <Box
         sx={{
@@ -50,7 +54,7 @@ export default function Contact() {
           backgroundColor: "#f9f9f9",
         }}
       >
-        <Container maxWidth="md">
+        <Container maxWidth="md" sx={{paddingBottom: '100px' }}>
           <Typography
             variant="h2"
             component="h1"
@@ -144,6 +148,6 @@ export default function Contact() {
         </Container>
         <Footer />
       </Box>
-    </>
+    </Box>
   );
 }
