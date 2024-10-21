@@ -83,7 +83,12 @@ const Blog = () => {
 
         {/* Blog Ekle Butonu */}
         <Box textAlign="center" mb={5}>
-          <Button variant="contained" color="primary" onClick={handleClickOpen}>
+          <Button variant="contained" sx={{ backgroundColor: '#4caf50',
+                    color: '#fff',
+                    fontWeight: 'bold',
+                    '&:hover': {
+                      backgroundColor: '#45a049',
+                    },}} onClick={handleClickOpen}>
             Blog Ekle
           </Button>
         </Box>
@@ -143,7 +148,12 @@ const Blog = () => {
             <Button onClick={handleClose} color="secondary">
               İptal
             </Button>
-            <Button onClick={handleAddBlog} color="primary">
+            <Button onClick={handleAddBlog} sx={{ backgroundColor: '#4caf50',
+                    color: '#fff',
+                    fontWeight: 'bold',
+                    '&:hover': {
+                      backgroundColor: '#45a049',
+                    },}}>
               Ekle
             </Button>
           </DialogActions>
