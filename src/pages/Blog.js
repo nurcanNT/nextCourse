@@ -65,9 +65,13 @@ const Blog = () => {
   };
 
   return (
-    <>
+    <Box 
+      display="flex" 
+      flexDirection="column" 
+      minHeight="100vh"
+    >
       <Header />
-      <Container maxWidth="lg" sx={{ py: 5 }}>
+      <Container maxWidth="lg" sx={{ py: 5, flexGrow: 1 }}>
         {/* Hero Section */}
         <Box textAlign="center" mb={5}>
           <Typography variant="h3" component="h1" color="primary" gutterBottom>
@@ -80,12 +84,7 @@ const Blog = () => {
 
         {/* Blog Ekle Butonu */}
         <Box textAlign="center" mb={5}>
-          <Button variant="contained" sx={{backgroundColor: '#4caf50',
-                    color: '#fff',
-                    fontWeight: 'bold',
-                    '&:hover': {
-                      backgroundColor: '#45a049',
-                    },}} onClick={handleClickOpen}>
+          <Button variant="contained" color="primary" onClick={handleClickOpen}>
             Blog Ekle
           </Button>
         </Box>
@@ -151,7 +150,6 @@ const Blog = () => {
           </DialogActions>
         </Dialog>
 
-        {/* Blog Grid */}
         <Grid container spacing={4}>
           {blogs.map((blog, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
@@ -222,7 +220,7 @@ const Blog = () => {
         </Grid>
       </Container>
       <Footer />
-    </>
+    </Box>
   );
 };
 
