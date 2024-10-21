@@ -1,9 +1,10 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { Box, Grid, Typography, Container, Button, Avatar, Dialog, DialogTitle, DialogContent, TextField, DialogActions } from '@mui/material';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaCalendarAlt, FaUser } from 'react-icons/fa';
 
+// Example blog data
 const initialBlogs = [
   {
     title: 'Dijital Pazarlamada Başarılı Olmanın Yolları',
@@ -35,7 +36,7 @@ const Blog = () => {
     title: '',
     description: '',
     author: '',
-    date: '',
+    date: new Date().toLocaleDateString('tr-TR'), 
     image: ''
   });
 
