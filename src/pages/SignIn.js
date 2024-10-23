@@ -6,7 +6,7 @@ import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 
-export default function SignUp() {
+export default function SignIn() {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -229,10 +229,10 @@ export default function SignUp() {
             },
           }}
         >
-          Sign Up
+          Sign In
         </Button>
 
-        <Divider sx={{ marginY: '20px' }}>Or Sign Up with</Divider>
+        <Divider sx={{ marginY: '20px' }}>Or Sign In with</Divider>
 
         <Box sx={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '20px' }}>
           <IconButton sx={{ color: '#db4437' }}>

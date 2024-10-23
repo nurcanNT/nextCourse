@@ -116,7 +116,7 @@ export default function Header() {
                   },
                 }}
               >
-                Sign Up
+                Sign In
               </Button>
             </Link>
           </Box>
