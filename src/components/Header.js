@@ -90,24 +90,36 @@ export default function Header() {
               </Button>
             </Box>
           ) : (
-            <Box sx={{ display: 'flex', ml: 'auto' }}>
-              <Link href="/login" passHref>
-                <Button sx={{ backgroundColor: '#4caf50',
-                    color: '#fff',
-                    fontWeight: 'bold',
-                    '&:hover': {
-                      backgroundColor: '#45a049',
-                    },}}>Log In</Button>
-              </Link>
-              <Link href="/register" passHref>
-                <Button sx={{ backgroundColor: '#4caf50',
-                    color: '#fff',
-                    fontWeight: 'bold',
-                    '&:hover': {
-                      backgroundColor: '#45a049',
-                    },}}>Sign Up</Button>
-              </Link>
-            </Box>
+            <Box sx={{ display: 'flex', ml: 'auto', gap: '10px' }}>
+            <Link href="/login" passHref>
+              <Button
+                sx={{
+                  backgroundColor: '#4caf50',
+                  color: '#fff',
+                  fontWeight: 'bold',
+                  '&:hover': {
+                    backgroundColor: '#45a049',
+                  },
+                }}
+              >
+                Log In
+              </Button>
+            </Link>
+            <Link href="/register" passHref>
+              <Button
+                sx={{
+                  backgroundColor: '#4caf50',
+                  color: '#fff',
+                  fontWeight: 'bold',
+                  '&:hover': {
+                    backgroundColor: '#45a049',
+                  },
+                }}
+              >
+                Sign Up
+              </Button>
+            </Link>
+          </Box>
           )}
 
           {/* Search Button */}
