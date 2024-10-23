@@ -72,11 +72,10 @@ export default function Header() {
             </Box>
           )}
 
-          {/* Kullanıcı durumu */}
           {user ? (
             <Box sx={{ display: 'flex', alignItems: 'center', ml: 'auto' }}>
               <Avatar sx={{ bgcolor: '#4caf50', mr: 1 }}>
-                {user.name.charAt(0).toUpperCase()} {/* Kullanıcının baş harfi */}
+                {user.name.charAt(0).toUpperCase()}
               </Avatar>
               <Typography variant="body1" sx={{ mr: 2 }}>
                 {user.name}
@@ -87,7 +86,7 @@ export default function Header() {
                 onClick={handleLogout}
                 sx={{ backgroundColor: '#f44336' }}
               >
-                Çıkış Yap
+                Log Out
               </Button>
             </Box>
           ) : (
@@ -98,7 +97,7 @@ export default function Header() {
                     fontWeight: 'bold',
                     '&:hover': {
                       backgroundColor: '#45a049',
-                    },}}>Giriş Yap</Button>
+                    },}}>Log In</Button>
               </Link>
               <Link href="/register" passHref>
                 <Button sx={{ backgroundColor: '#4caf50',
@@ -106,7 +105,7 @@ export default function Header() {
                     fontWeight: 'bold',
                     '&:hover': {
                       backgroundColor: '#45a049',
-                    },}}>Kayıt Ol</Button>
+                    },}}>Sign Up</Button>
               </Link>
             </Box>
           )}
