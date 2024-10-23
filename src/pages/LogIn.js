@@ -5,7 +5,7 @@ import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 
-export default function SignIn() {
+export default function LogIn() {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -84,7 +84,7 @@ export default function SignIn() {
           Welcome Back!
         </Typography>
         <Typography variant="subtitle1">
-          Sign in to continue
+          Log In to continue
         </Typography>
       </Box>
 
@@ -142,7 +142,7 @@ export default function SignIn() {
             },
           }}
         >
-          Sign In
+          Log In
         </Button>
 
         <Divider sx={{ marginY: '20px' }}>Or</Divider>
