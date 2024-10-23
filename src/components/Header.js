@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { AppBar, Toolbar, Button, IconButton, Box, TextField, InputAdornment, Drawer, List, ListItem, ListItemText } from '@mui/material';
+import React, { useState, useEffect } from "react";
+import { AppBar, Toolbar, Button, IconButton, Box, TextField, InputAdornment, Drawer, List, ListItem, ListItemText, Avatar } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Link from 'next/link';
@@ -12,8 +12,17 @@ import { useTheme } from '@mui/material/styles';
 export default function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [user, setUser] = useState(null); // Kullanıcı bilgisi state'i
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Detect mobile view
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  useEffect(() => {
+    // Burada localStorage'den veya API'den kullanıcıyı alabilirsiniz
+    const loggedInUser = JSON.parse(localStorage.getItem('user'));
+    if (loggedInUser) {
+      setUser(loggedInUser);
+    }
+  }, []);
 
   const handleSearchClick = () => {
     setSearchOpen(!searchOpen);
@@ -21,6 +30,12 @@ export default function Header() {
 
   const toggleDrawer = (open) => () => {
     setDrawerOpen(open);
+  };
+
+  const handleLogout = () => {
+    // Kullanıcıyı çıkış yaptırma işlemleri (ör. localStorage'dan temizleme)
+    localStorage.removeItem('user');
+    setUser(null);
   };
 
   return (
@@ -53,6 +68,45 @@ export default function Header() {
               </Link>
               <Link href="/Contact">
                 <Button sx={{ color: 'black' }} color="inherit">Contact</Button>
+              </Link>
+            </Box>
+          )}
+
+          {/* Kullanıcı durumu */}
+          {user ? (
+            <Box sx={{ display: 'flex', alignItems: 'center', ml: 'auto' }}>
+              <Avatar sx={{ bgcolor: '#4caf50', mr: 1 }}>
+                {user.name.charAt(0).toUpperCase()} {/* Kullanıcının baş harfi */}
+              </Avatar>
+              <Typography variant="body1" sx={{ mr: 2 }}>
+                {user.name}
+              </Typography>
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={handleLogout}
+                sx={{ backgroundColor: '#f44336' }}
+              >
+                Çıkış Yap
+              </Button>
+            </Box>
+          ) : (
+            <Box sx={{ display: 'flex', ml: 'auto' }}>
+              <Link href="/login" passHref>
+                <Button sx={{ backgroundColor: '#4caf50',
+                    color: '#fff',
+                    fontWeight: 'bold',
+                    '&:hover': {
+                      backgroundColor: '#45a049',
+                    },}}>Giriş Yap</Button>
+              </Link>
+              <Link href="/register" passHref>
+                <Button sx={{ backgroundColor: '#4caf50',
+                    color: '#fff',
+                    fontWeight: 'bold',
+                    '&:hover': {
+                      backgroundColor: '#45a049',
+                    },}}>Kayıt Ol</Button>
               </Link>
             </Box>
           )}
@@ -120,7 +174,7 @@ export default function Header() {
             label="Search..."
             variant="outlined"
             sx={{
-              width: isMobile ? '90%' : '70%', // Adjust width for mobile
+              width: isMobile ? '90%' : '70%',
               '& .MuiOutlinedInput-root': {
                 '& fieldset': {
                   borderColor: '#4caf50',
