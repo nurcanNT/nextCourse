@@ -105,7 +105,7 @@ export default function Header() {
                 Log In
               </Button>
             </Link>
-            <Link href="/register" passHref>
+            <Link href="/SignIn" passHref>
               <Button
                 sx={{
                   backgroundColor: '#4caf50',
