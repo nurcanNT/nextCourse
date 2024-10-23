@@ -91,7 +91,7 @@ export default function Header() {
             </Box>
           ) : (
             <Box sx={{ display: 'flex', ml: 'auto', gap: '10px' }}>
-            <Link href="/login" passHref>
+            <Link href="/LogIn" passHref>
               <Button
                 sx={{
                   backgroundColor: '#4caf50',
