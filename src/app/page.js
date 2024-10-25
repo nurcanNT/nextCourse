@@ -54,14 +54,7 @@ export default function Home() {
         </div>
 
         <div className={styles.boxContainer}>
-          <div className={styles.box}>
-            <h2>En Çok Yorum Alan Makale</h2>
-            <p>Bu bölümde en çok yorum alan içerikler yer alacak.</p>
-          </div>
-          <div className={styles.box}>
-            <h2>En Çok Beğenilen Yorum</h2>
-            <p>Bu bölümde en çok beğenilen yorumlar gösterilecek.</p>
-          </div>
+          
           <div className={styles.box}>
             <h2>En Çok Favori Alan İçerik</h2>
             <p>Bu bölümde en çok favorilere eklenen içerikler yer alacak.</p>
