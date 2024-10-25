@@ -66,6 +66,10 @@ export default function Home() {
             <h2>En Çok Beğenilen Yorum</h2>
             <p>Bu bölümde en çok beğenilen yorumlar gösterilecek.</p>
           </div>
+          <div className={styles.box}>
+            <h2>En Çok Beğenilen Yorum</h2>
+            <p>Bu bölümde en çok beğenilen yorumlar gösterilecek.</p>
+          </div>
         </div>
 
         <Footer />
