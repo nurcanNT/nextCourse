@@ -143,6 +143,24 @@ const Blog = () => {
               value={newBlog.image}
               onChange={handleChange}
             />
+            <TextField
+              margin="dense"
+              label="Tarih"
+              name="date"
+              fullWidth
+              variant="outlined"
+              value={newBlog.date}
+              onChange={handleChange}
+            />
+            <TextField
+              margin="dense"
+              label="Resim URL"
+              name="image"
+              fullWidth
+              variant="outlined"
+              value={newBlog.image}
+              onChange={handleChange}
+            />
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose} color="secondary">
