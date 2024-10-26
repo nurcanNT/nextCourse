@@ -39,6 +39,7 @@ const Blog = () => {
     date: new Date().toLocaleDateString('tr-TR'), 
     image: ''
   });
+  const [imageError, setImageError] = useState(''); 
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -46,9 +47,14 @@ const Blog = () => {
 
   const handleClose = () => {
     setOpen(false);
+    setImageError(''); 
   };
 
   const handleAddBlog = () => {
+    if (!isValidUrl(newBlog.image)) {
+      setImageError('Enter a valid URL.'); 
+      return;
+    }
     setBlogs([...blogs, newBlog]); 
     handleClose(); 
   };
@@ -61,17 +67,20 @@ const Blog = () => {
     }));
   };
 
+ 
+  const isValidUrl = (url) => {
+    try {
+      new URL(url);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  };
+
   return (
-    <Box 
-      display="flex" 
-      flexDirection="column" 
-      minHeight="100%" 
-    >
+    <Box display="flex" flexDirection="column" minHeight="100%">
       <Header />
-      <Container 
-        maxWidth="lg" 
-        sx={{ py: 5, flexGrow: 1, paddingBottom: '100px' }}
-      >
+      <Container maxWidth="lg" sx={{ py: 5, flexGrow: 1, paddingBottom: '100px' }}>
         <Box textAlign="center" mb={5}>
           <Typography variant="h3" component="h1" color="primary" gutterBottom>
             Blog Yazılarımız
@@ -83,12 +92,16 @@ const Blog = () => {
 
         {/* Blog Ekle Butonu */}
         <Box textAlign="center" mb={5}>
-          <Button variant="contained" sx={{ backgroundColor: '#4caf50',
-                    color: '#fff',
-                    fontWeight: 'bold',
-                    '&:hover': {
-                      backgroundColor: '#45a049',
-                    },}} onClick={handleClickOpen}>
+          <Button variant="contained" sx={{
+              backgroundColor: '#4caf50',
+              color: '#fff',
+              fontWeight: 'bold',
+              '&:hover': {
+                backgroundColor: '#45a049',
+              },
+            }} 
+            onClick={handleClickOpen}
+          >
             Blog Ekle
           </Button>
         </Box>
@@ -142,6 +155,8 @@ const Blog = () => {
               variant="outlined"
               value={newBlog.image}
               onChange={handleChange}
+              error={!!imageError} 
+              helperText={imageError} 
             />
           </DialogContent>
           <DialogActions>
