@@ -224,20 +224,7 @@ const Blog = () => {
                     {blog.date}
                   </Typography>
                 </Box>
-                <Button
-                  variant="contained"
-                  fullWidth
-                  sx={{
-                    backgroundColor: '#4caf50',
-                    color: '#fff',
-                    fontWeight: 'bold',
-                    '&:hover': {
-                      backgroundColor: '#45a049',
-                    },
-                  }}
-                >
-                  Devamını Oku
-                </Button>
+                
               </Box>
             </Grid>
           ))}
