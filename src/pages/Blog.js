@@ -1,6 +1,7 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { Box, Grid, Typography, Container, Button, Avatar, Dialog, DialogTitle, DialogContent, TextField, DialogActions } from '@mui/material';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { FaCalendarAlt, FaUser } from 'react-icons/fa';
 
@@ -224,6 +225,7 @@ const Blog = () => {
                     {blog.date}
                   </Typography>
                 </Box>
+                <Link href="/ReadMore" passHref>
                 <Button
                   variant="contained"
                   fullWidth
@@ -238,6 +240,7 @@ const Blog = () => {
                 >
                   Devamını Oku
                 </Button>
+                </Link>
               </Box>
             </Grid>
           ))}
