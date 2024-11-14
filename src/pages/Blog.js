@@ -159,6 +159,17 @@ const Blog = () => {
               error={!!imageError} 
               helperText={imageError} 
             />
+            <TextField
+              margin="dense"
+              label="Makaleni Yaz"
+              name="content"
+              fullWidth
+              multiline
+              rows={4}
+              variant="outlined"
+              value={newBlog.content}
+              onChange={handleChange}
+            />  
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose} color="secondary">
