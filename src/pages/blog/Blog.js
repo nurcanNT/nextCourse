@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Box, Grid, Typography, Container, Button, Avatar } from '@mui/material';
+import { Box, Grid, Typography, Container, Button, Avatar, Modal, TextField } from '@mui/material';
 import Link from 'next/link';
 import { FaCalendarAlt, FaUser } from 'react-icons/fa';
 import Header from '@/components/Header';
@@ -7,6 +7,14 @@ import Footer from '@/components/Footer';
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [newBlog, setNewBlog] = useState({
+    title: '',
+    description: '',
+    image: '',
+    author: '',
+    date: '',
+  });
 
   useEffect(() => {
     // JSON dosyasını public klasöründen almak için fetch kullanıyoruz
@@ -15,6 +23,25 @@ const Blog = () => {
       .then((data) => setBlogs(data))
       .catch((err) => console.error('API Hatası:', err));
   }, []);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNewBlog((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleAddBlog = () => {
+    const newBlogEntry = {
+      ...newBlog,
+      id: blogs.length + 1, // Yeni bir ID atanıyor
+      date: new Date().toISOString().split('T')[0], // Güncel tarih
+    };
+
+    setBlogs((prevBlogs) => [newBlogEntry, ...prevBlogs]);
+    handleClose();
+  };
 
   return (
     <Box display="flex" flexDirection="column" minHeight="100%">
@@ -27,6 +54,12 @@ const Blog = () => {
           <Typography variant="subtitle1" color="textSecondary">
             Dijital dünyada öne çıkmanızı sağlayacak ipuçları ve en son trendler
           </Typography>
+        </Box>
+
+        <Box textAlign="right" mb={4}>
+          <Button variant="contained" color="primary" onClick={handleOpen}>
+            Makale Yaz
+          </Button>
         </Box>
 
         <Grid container spacing={4}>
@@ -100,7 +133,66 @@ const Blog = () => {
           ))}
         </Grid>
       </Container>
+
       <Footer />
+
+      {/* Makale Ekleme Modalı */}
+      <Modal open={open} onClose={handleClose}>
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 400,
+            bgcolor: 'background.paper',
+            boxShadow: 24,
+            p: 4,
+            borderRadius: 2,
+          }}
+        >
+          <Typography variant="h6" component="h2" gutterBottom>
+            Yeni Makale Ekle
+          </Typography>
+          <TextField
+            label="Başlık"
+            name="title"
+            fullWidth
+            margin="normal"
+            value={newBlog.title}
+            onChange={handleChange}
+          />
+          <TextField
+            label="Açıklama"
+            name="description"
+            fullWidth
+            margin="normal"
+            value={newBlog.description}
+            onChange={handleChange}
+          />
+          <TextField
+            label="Görsel URL"
+            name="image"
+            fullWidth
+            margin="normal"
+            value={newBlog.image}
+            onChange={handleChange}
+          />
+          <TextField
+            label="Yazar"
+            name="author"
+            fullWidth
+            margin="normal"
+            value={newBlog.author}
+            onChange={handleChange}
+          />
+          <Box textAlign="right" mt={2}>
+            <Button variant="contained" color="primary" onClick={handleAddBlog}>
+              Ekle
+            </Button>
+          </Box>
+        </Box>
+      </Modal>
     </Box>
   );
 };
