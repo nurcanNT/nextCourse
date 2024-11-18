@@ -56,12 +56,11 @@ const Blog = () => {
           </Typography>
         </Box>
 
-        <Box textAlign="right" mb={4}>
+        <Box display="flex" justifyContent="center" mb={4}>
           <Button variant="contained" color="primary" onClick={handleOpen}>
             Makale Yaz
           </Button>
         </Box>
-
         <Grid container spacing={4}>
           {blogs.map((blog) => (
             <Grid item xs={12} sm={6} md={4} key={blog.id}>
