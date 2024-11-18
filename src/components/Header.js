@@ -63,7 +63,7 @@ export default function Header() {
               <Link href="/About">
                 <Button sx={{ color: 'black' }} color="inherit">About</Button>
               </Link>
-              <Link href="/Blog" passHref>
+              <Link href="/blog/Blog" passHref>
                 <Button sx={{ color: 'black' }} color="inherit">Blog</Button>
               </Link>
               <Link href="/Contact">

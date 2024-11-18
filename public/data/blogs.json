@@ -1,0 +1,48 @@
+[
+    {
+      "id": 1,
+      "title": "Next.js ile Blog Yazmaya Başlayın",
+      "description": "Next.js'in temel özellikleri ve nasıl kullanıldığı hakkında kapsamlı bir rehber.",
+      "author": "Ahmet Yılmaz",
+      "date": "2024-11-17",
+      "image": "https://via.placeholder.com/300x200",
+      "content": "Next.js, React ekosistemi içinde yer alan güçlü bir framework olarak dikkat çekiyor. Sunucu tarafında render etme (SSR) ve statik site oluşturma (SSG) özellikleri, uygulamanızın performansını artırırken SEO dostu bir yapı sunar. Bunun yanı sıra, sayfa yönlendirme, API entegrasyonları ve yerleşik TypeScript desteği gibi özellikleriyle geliştirme sürecini kolaylaştırır.\n\nEğer React kullanıyorsanız, Next.js'in sunduğu araçlar ile kullanıcılarınız için hızlı ve etkili deneyimler yaratabilirsiniz. Projeye başlamak için `create-next-app` komutunu kullanabilir ve Next.js dokümantasyonundan faydalanabilirsiniz."
+    },
+    {
+      "id": 2,
+      "title": "SEO Teknikleri ve Web Performansı",
+      "description": "SEO uyumlu web siteleri geliştirmek için öneriler.",
+      "author": "Zeynep Kaya",
+      "date": "2024-11-16",
+      "image": "https://via.placeholder.com/300x200",
+      "content": "Web sitenizin görünürlüğünü artırmak için SEO tekniklerini uygulamak çok önemlidir. Arama motorları için optimize edilmiş içerikler, doğru meta etiketleri ve hızlı yükleme süreleri, kullanıcı deneyimini iyileştirirken sıralamanızı da yükseltir. Bunun yanında, resim optimizasyonu ve CDN kullanımı gibi yöntemlerle sitenizin performansını artırabilirsiniz.\n\nSEO'nun temelinde anahtar kelime araştırması yer alır. Hedef kitlenizin arama alışkanlıklarını analiz ederek, içeriklerinizi doğru anahtar kelimelerle optimize edebilirsiniz. Unutmayın, hem kullanıcılar hem de arama motorları için kaliteli ve bilgilendirici içerik oluşturmak her zaman öncelikli olmalıdır."
+    },
+    {
+      "id": 3,
+      "title": "JavaScript İle Asenkron Programlama",
+      "description": "Promise, async/await ve diğer asenkron JavaScript teknikleri.",
+      "author": "Mehmet Demir",
+      "date": "2024-11-15",
+      "image": "https://via.placeholder.com/300x200",
+      "content": "Asenkron programlama, modern web uygulamalarında hız ve verimlilik sağlamak için kritik bir öneme sahiptir. JavaScript'te Promise ve async/await gibi yapılar, asenkron işlemleri daha okunabilir ve yönetilebilir hale getirir. Özellikle API çağrıları ve veri tabanı işlemleri gibi uzun süren görevler için bu yapılar oldukça faydalıdır.\n\nPromise, bir işlemin tamamlanacağını veya bir hata alacağını ifade eden bir nesnedir. Async/await ise kodunuzu senkron bir yapıda yazmanıza olanak tanıyan bir sentakstır. Bu araçlar, JavaScript uygulamalarınızda performansı artırmak için güçlü araçlardır."
+    },
+    {
+      "id": 4,
+      "title": "Material-UI ile Kullanıcı Arayüzü Geliştirme",
+      "description": "React uygulamalarında Material-UI'nin kullanımı ve ipuçları.",
+      "author": "Selin Aydın",
+      "date": "2024-11-14",
+      "image": "https://via.placeholder.com/300x200",
+      "content": "Material-UI, React uygulamaları için önceden tanımlanmış bileşenler sunan popüler bir kütüphanedir. Bu bileşenler, Google'ın Material Design standartlarına uygun olarak tasarlanmıştır ve kullanıcı dostu arayüzler oluşturmayı kolaylaştırır. Özelleştirme seçenekleri sayesinde, temalar oluşturabilir ve projenizin ihtiyaçlarına uygun bir tasarım geliştirebilirsiniz.\n\nMaterial-UI'nin grid sistemi, form elemanları ve kart gibi bileşenleri, projelerinizde hızlıca uygulayabileceğiniz modüler bir yapı sağlar. Özellikle responsive tasarımlar için grid sistemi oldukça esnektir ve tasarımlarınızı mobil cihazlar için optimize etmenize olanak tanır."
+    },
+    {
+      "id": 5,
+      "title": "React'te Redux Kullanımı",
+      "description": "Redux ile global state yönetimi ve temel konseptler.",
+      "author": "Ali Vural",
+      "date": "2024-11-13",
+      "image": "https://via.placeholder.com/300x200",
+      "content": "Redux, büyük ve karmaşık uygulamalarda state yönetimini kolaylaştırmak için kullanılan bir kütüphanedir. Tüm state'in merkezi bir store'da tutulduğu bu yapı, bileşenler arasındaki veri akışını düzenler ve tahmin edilebilir bir uygulama durumu sağlar.\n\nReact ile Redux kullanırken, `useSelector` ve `useDispatch` gibi hook'lar, store'daki verilere erişmenizi ve bu verileri güncellemenizi sağlar. Redux, öğrenmesi biraz zaman alsa da, büyük ölçekli projelerde uzun vadede büyük avantajlar sunar. Geliştirici araçları ile uygulamanızın her adımını takip edebilirsiniz."
+    }
+  ]
+  
