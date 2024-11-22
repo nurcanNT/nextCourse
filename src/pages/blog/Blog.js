@@ -58,7 +58,7 @@ const Blog = () => {
 
         <Box display="flex" justifyContent="center" mb={4}>
           <Button variant="contained" color="primary" onClick={handleOpen}>
-            Makale Yaz
+            Blog yaz
           </Button>
         </Box>
         <Grid container spacing={4}>
