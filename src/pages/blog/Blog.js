@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Box, Grid, Typography, Container, Button, Avatar, Modal, TextField } from '@mui/material';
+import { Box, Grid, Typography, Container, Button, Avatar, Modal, TextField, InputAdornment } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 import Link from 'next/link';
 import { FaCalendarAlt, FaUser } from 'react-icons/fa';
 import Header from '@/components/Header';
@@ -7,6 +8,7 @@ import Footer from '@/components/Footer';
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
+  const [searchTerm, setSearchTerm] = useState(''); // Arama çubuğu için state
   const [open, setOpen] = useState(false);
   const [newBlog, setNewBlog] = useState({
     title: '',
@@ -43,6 +45,13 @@ const Blog = () => {
     handleClose();
   };
 
+  // Arama sonuçlarına göre filtrelenmiş bloglar
+  const filteredBlogs = blogs.filter((blog) =>
+    blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    blog.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    blog.author.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <Box display="flex" flexDirection="column" minHeight="100%">
       <Header />
@@ -56,80 +65,104 @@ const Blog = () => {
           </Typography>
         </Box>
 
+        {/* Arama Çubuğu */}
+        <Box display="flex" justifyContent="center" mb={4}>
+          <TextField
+            placeholder="Bloglarda ara..."
+            fullWidth
+            sx={{ maxWidth: '500px' }}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
+        </Box>
+
         <Box display="flex" justifyContent="center" mb={4}>
           <Button variant="contained" color="primary" onClick={handleOpen}>
             Makale Yaz
           </Button>
         </Box>
         <Grid container spacing={4}>
-          {blogs.map((blog) => (
-            <Grid item xs={12} sm={6} md={4} key={blog.id}>
-              <Box
-                sx={{
-                  p: 3,
-                  textAlign: 'center',
-                  borderRadius: '10px',
-                  backgroundColor: 'white',
-                  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                  '&:hover': {
-                    transform: 'translateY(-5px)',
-                    transition: '0.3s',
-                  },
-                }}
-              >
+          {filteredBlogs.length > 0 ? (
+            filteredBlogs.map((blog) => (
+              <Grid item xs={12} sm={6} md={4} key={blog.id}>
                 <Box
-                  component="img"
-                  src={blog.image}
-                  alt={blog.title}
                   sx={{
-                    width: '100%',
-                    height: '200px',
-                    objectFit: 'cover',
+                    p: 3,
+                    textAlign: 'center',
                     borderRadius: '10px',
-                    marginBottom: '15px',
+                    backgroundColor: 'white',
+                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                    '&:hover': {
+                      transform: 'translateY(-5px)',
+                      transition: '0.3s',
+                    },
                   }}
-                />
-                <Typography variant="h5" component="h3" gutterBottom>
-                  {blog.title}
-                </Typography>
-                <Typography variant="body1" color="textSecondary" mb={2}>
-                  {blog.description}
-                </Typography>
-                <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mb: 2 }}>
-                  <Avatar sx={{ bgcolor: 'primary.main', width: 24, height: 24 }}>
-                    <FaUser />
-                  </Avatar>
-                  <Typography variant="body2" color="textSecondary">
-                    {blog.author}
-                  </Typography>
-                </Box>
-                <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mb: 2 }}>
-                  <Avatar sx={{ bgcolor: 'primary.main', width: 24, height: 24 }}>
-                    <FaCalendarAlt />
-                  </Avatar>
-                  <Typography variant="body2" color="textSecondary">
-                    {blog.date}
-                  </Typography>
-                </Box>
-                <Link href={`/blog/${blog.id}`} passHref>
-                  <Button
-                    variant="contained"
-                    fullWidth
+                >
+                  <Box
+                    component="img"
+                    src={blog.image}
+                    alt={blog.title}
                     sx={{
-                      backgroundColor: '#4caf50',
-                      color: '#fff',
-                      fontWeight: 'bold',
-                      '&:hover': {
-                        backgroundColor: '#45a049',
-                      },
+                      width: '100%',
+                      height: '200px',
+                      objectFit: 'cover',
+                      borderRadius: '10px',
+                      marginBottom: '15px',
                     }}
-                  >
-                    Devamını Oku
-                  </Button>
-                </Link>
-              </Box>
-            </Grid>
-          ))}
+                  />
+                  <Typography variant="h5" component="h3" gutterBottom>
+                    {blog.title}
+                  </Typography>
+                  <Typography variant="body1" color="textSecondary" mb={2}>
+                    {blog.description}
+                  </Typography>
+                  <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mb: 2 }}>
+                    <Avatar sx={{ bgcolor: 'primary.main', width: 24, height: 24 }}>
+                      <FaUser />
+                    </Avatar>
+                    <Typography variant="body2" color="textSecondary">
+                      {blog.author}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mb: 2 }}>
+                    <Avatar sx={{ bgcolor: 'primary.main', width: 24, height: 24 }}>
+                      <FaCalendarAlt />
+                    </Avatar>
+                    <Typography variant="body2" color="textSecondary">
+                      {blog.date}
+                    </Typography>
+                  </Box>
+                  <Link href={`/blog/${blog.id}`} passHref>
+                    <Button
+                      variant="contained"
+                      fullWidth
+                      sx={{
+                        backgroundColor: '#4caf50',
+                        color: '#fff',
+                        fontWeight: 'bold',
+                        '&:hover': {
+                          backgroundColor: '#45a049',
+                        },
+                      }}
+                    >
+                      Devamını Oku
+                    </Button>
+                  </Link>
+                </Box>
+              </Grid>
+            ))
+          ) : (
+            <Typography variant="h6" color="textSecondary" textAlign="center">
+              Aramanızla eşleşen blog bulunamadı.
+            </Typography>
+          )}
         </Grid>
       </Container>
 
