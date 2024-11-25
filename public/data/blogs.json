@@ -70,15 +70,6 @@
       "date": "2024-11-13",
       "image": "https://via.placeholder.com/300x200",
       "content": "Redux, büyük ve karmaşık uygulamalarda state yönetimini kolaylaştırmak için kullanılan bir kütüphanedir. Tüm state'in merkezi bir store'da tutulduğu bu yapı, bileşenler arasındaki veri akışını düzenler ve tahmin edilebilir bir uygulama durumu sağlar.\n\nReact ile Redux kullanırken, `useSelector` ve `useDispatch` gibi hook'lar, store'daki verilere erişmenizi ve bu verileri güncellemenizi sağlar. Redux, öğrenmesi biraz zaman alsa da, büyük ölçekli projelerde uzun vadede büyük avantajlar sunar. Geliştirici araçları ile uygulamanızın her adımını takip edebilirsiniz."
-    },
-    {
-      "id": 9,
-      "title": "React Nedir?",
-      "description": "Redux ile global state yönetimi ve temel konseptler.",
-      "author": "Ali Vural",
-      "date": "2024-11-13",
-      "image": "https://via.placeholder.com/300x200",
-      "content": "Redux, büyük ve karmaşık uygulamalarda state yönetimini kolaylaştırmak için kullanılan bir kütüphanedir. Tüm state'in merkezi bir store'da tutulduğu bu yapı, bileşenler arasındaki veri akışını düzenler ve tahmin edilebilir bir uygulama durumu sağlar.\n\nReact ile Redux kullanırken, `useSelector` ve `useDispatch` gibi hook'lar, store'daki verilere erişmenizi ve bu verileri güncellemenizi sağlar. Redux, öğrenmesi biraz zaman alsa da, büyük ölçekli projelerde uzun vadede büyük avantajlar sunar. Geliştirici araçları ile uygulamanızın her adımını takip edebilirsiniz."
     }
   ]
   
